@@ -7,6 +7,7 @@ import Clientes from './pages/Clientes'
 import ClienteDetail from './pages/ClienteDetail'
 import ContratoDetail from './pages/ContratoDetail'
 import EquipamentoDetail from './pages/EquipamentoDetail'
+import Cotacoes from './pages/Cotacoes'
 
 export default function App() {
   return (
@@ -18,9 +19,8 @@ export default function App() {
         <Route path="/clientes/:id" element={<ProtectedRoute><ClienteDetail /></ProtectedRoute>} />
         <Route path="/contratos/:id" element={<ProtectedRoute><ContratoDetail /></ProtectedRoute>} />
         <Route path="/equipamentos/:id" element={<ProtectedRoute><EquipamentoDetail /></ProtectedRoute>} />
+        <Route path="/cotacoes" element={<ProtectedRoute><Cotacoes /></ProtectedRoute>} />
       </Routes>
     </AuthProvider>
   )
 }
-import Cotacoes from './pages/Cotacoes'
-<Route path="/cotacoes" element={<ProtectedRoute><Cotacoes /></ProtectedRoute>} />
