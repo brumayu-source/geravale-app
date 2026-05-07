@@ -131,7 +131,7 @@ function FormCotacao({ initial = {}, onSave, onClose }) {
     tipo: 'realizado',
     cliente: '',
     descricao: '',
-    num_omie: '',
+    omie: '',
     os: '',
     data_envio: new Date().toISOString().split('T')[0],
     proximo_followup: '',
@@ -150,7 +150,7 @@ function FormCotacao({ initial = {}, onSave, onClose }) {
       ...form,
       valor: form.valor ? parseFloat(form.valor) : null,
       proximo_followup: form.proximo_followup || null,
-      num_omie: form.num_omie || null,
+      omie: form.omie || null,
       os: form.os || null,
     })
   }
@@ -182,7 +182,7 @@ function FormCotacao({ initial = {}, onSave, onClose }) {
       </Fg>
 
       <Fg label="N° Omie">
-        <input style={s.input} value={form.num_omie} onChange={e => set('num_omie', e.target.value)} placeholder="Ex: 4821" />
+        <input style={s.input} value={form.omie} onChange={e => set('omie', e.target.value)} placeholder="Ex: 4821" />
       </Fg>
 
       <Fg label="N° OS">
@@ -230,7 +230,7 @@ function CardCotacao({ c, onEdit, onDelete, onArquivar }) {
   const sc = STATUS_COLOR[c.status] || STATUS_COLOR.aguardando
   const dias = diasDesde(c.data_envio)
 
-  const refNums = [c.num_omie && `Omie ${c.num_omie}`, c.os && `OS ${c.os}`].filter(Boolean).join(' · ')
+  const refNums = [c.omie && `Omie ${c.omie}`, c.os && `OS ${c.os}`].filter(Boolean).join(' · ')
 
   return (
     <div style={{ ...s.card, borderLeft: `3px solid ${tc.accent}` }}>
@@ -361,7 +361,7 @@ export default function Cotacoes() {
     if (filtro.status && c.status !== filtro.status) return false
     if (filtro.busca) {
       const q = filtro.busca.toLowerCase()
-      const campos = [c.cliente, c.descricao, c.os, c.num_omie, c.observacoes].map(v => (v || '').toLowerCase())
+      const campos = [c.cliente, c.descricao, c.os, c.omie, c.observacoes].map(v => (v || '').toLowerCase())
       if (!campos.some(v => v.includes(q))) return false
     }
     return true
