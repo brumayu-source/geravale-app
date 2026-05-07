@@ -23,3 +23,4 @@ export default function App() {
   )
 }
 import Cotacoes from './pages/Cotacoes'
+<Route path="/cotacoes" element={<ProtectedRoute><Cotacoes /></ProtectedRoute>} />
