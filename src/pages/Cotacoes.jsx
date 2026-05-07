@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { supabase } from '../lib/supabase'
-import { useAuth } from '../components/AuthContext'
+import { useAuth } from '../lib/auth'
 
 // ── Utilitários ───────────────────────────────────────────────────────────────
 const fmt = (iso) => {
@@ -133,7 +133,6 @@ function FormCotacao({ initial = {}, onSave, onClose }) {
     descricao: '',
     num_omie: '',
     os: '',
-    valor: '',
     data_envio: new Date().toISOString().split('T')[0],
     proximo_followup: '',
     status: 'aguardando',
